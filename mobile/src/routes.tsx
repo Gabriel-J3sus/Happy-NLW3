@@ -11,7 +11,11 @@ import OrphanageDetails from './pages/OrphanageDetails';
 import SelectMapPosition from './pages/CreateOrphanage/SelectMapPosition'; 
 import OrphanageData from './pages/CreateOrphanage/OrphanageData';
 
+import OrphanageSuccess from './pages/OrphanageSuccess';
+import CanceledOrphanage from './pages/CanceledOrphanage';
+
 import Header from './components/Header';
+
 
 export default function Routes() {
     return (
@@ -45,7 +49,17 @@ export default function Routes() {
                     options={{
                         headerShown: true,
                         header: () => <Header title="Informe os dados"/>
-                    }} 
+                    }}
+                />
+
+                <Screen 
+                    name="OrphanageSuccess"
+                    component={OrphanageSuccess}
+                />
+
+                <Screen 
+                    name="CanceledOrphanage"
+                    component={CanceledOrphanage}
                 />
             </Navigator>
         </NavigationContainer>

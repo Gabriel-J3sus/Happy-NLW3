@@ -27,7 +27,7 @@ export default function OrphanagesMap() {
   });
 
   function handleNavigateToOrphanageDetails(id: number) {
-      navigation.navigate('OrphanageDetails', { id });
+    navigation.navigate('OrphanageDetails', { id });
   }
 
   function handleNavigateToCreateOrphanage() {
