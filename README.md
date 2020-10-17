@@ -21,3 +21,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [TypeScript](https://www.typescriptlang.org/)
 <br /><br />
 ## 🧠 Desafios
+
+- [x] Página: cadastro realizado com sucesso; <br />
+- [x] Página: cancelamento do cadastro (mobile);
