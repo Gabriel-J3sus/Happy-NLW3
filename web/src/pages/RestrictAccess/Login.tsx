@@ -21,7 +21,7 @@ function Login() {
 
                         <div className="input-block">
                             <label htmlFor=""> E-mail </label>
-                            <input id="email" />
+                            <input id="email" type="email" />
                         </div>
                             
                         <div className="input-block">
@@ -40,10 +40,10 @@ function Login() {
                             </Link>
                         </div>
 
-                        <Link to="/" className="enter">
-                            Entrar
-                        </Link>
                     </fieldset>
+                    <button type="submit" className="enter">
+                        Entrar
+                    </button>
                 </form>
                 
             </div>

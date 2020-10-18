@@ -23,4 +23,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 🧠 Desafios
 
 - [x] Página: cadastro realizado com sucesso; <br />
-- [x] Página: cancelamento do cadastro (mobile);
+- [x] Página: cancelamento do cadastro (mobile);<br />
+- [x] Página: login, cadastro (web); <br />
+- [x] Fluxo de cadastro (web); <br />
+- [x] Splash Screen (mobile); <br />
+- [x] Onboarding do usuário (mobile); <br />

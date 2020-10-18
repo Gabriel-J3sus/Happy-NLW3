@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const { Navigator, Screen } = createStackNavigator();
 
+import Onboarding1and2 from './pages/Onboarding/Orboarding';
+
 import OrphanagesMap from './pages/OrphanagesMap'; 
 import OrphanageDetails from './pages/OrphanageDetails';
 
@@ -21,6 +23,10 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#f2f3f5' } }}>
+                <Screen 
+                    name="Onboarding1and2" 
+                    component={Onboarding1and2} 
+                />
                 <Screen 
                     name="OrphanagesMap" 
                     component={OrphanagesMap} 

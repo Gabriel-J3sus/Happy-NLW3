@@ -108,6 +108,7 @@
 
     text-decoration: none;
     transition: all ease 0.3s;
+    border: 0;
 }
 
 #container .form-container form .enter:hover {
@@ -115,7 +116,6 @@
     color: #37C77F;
     border: 2px solid #37C77F;
 } 
-
 
 #container .form-container form .about-password {
     display: flex;

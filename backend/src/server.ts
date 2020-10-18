@@ -17,16 +17,7 @@ app.use(express.json());
 app.use(routes);
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
 app.use(errorHandler);
-//Rota - conjunto
-//Recurso - usuário
 
-//Métodos HTTP - GET, POST, PUT, DELETE
-//Parâmetros
-
-//GET - Buscar uma informação (Lista, item)
-//POST - Criando uma informação
-//PUT - Editando uma informação
-//DELETE - Deletando uma informação
 
 //Query Params: http://localhost:3333/users?search=Gabriel console.log(request.query);
 //Route Params: http://localhost:333/users/1 (identificar um recurso) console.log(request.params);
