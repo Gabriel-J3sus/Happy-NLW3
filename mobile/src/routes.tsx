@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const { Navigator, Screen } = createStackNavigator();
 
-import Onboarding1and2 from './pages/Onboarding/Orboarding';
+import Onboarding1and2 from './pages/Onboarding/Onboarding1and2';
 
 import OrphanagesMap from './pages/OrphanagesMap'; 
 import OrphanageDetails from './pages/OrphanageDetails';
