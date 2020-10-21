@@ -28,4 +28,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [x] Fluxo de cadastro (web); <br />
 - [x] Splash Screen (mobile); <br />
 - [x] Onboarding do usuário (mobile); <br />
+- [x] Real localização do usuário (mobile); <br />
 

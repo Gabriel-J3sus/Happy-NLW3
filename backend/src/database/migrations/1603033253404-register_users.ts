@@ -2,7 +2,7 @@ import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
 export class registerUsers1603033253404 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
-        const UserSchema = await queryRunner.createTable(new Table({
+        const schema = await queryRunner.createTable(new Table({
             name: 'register',
             columns: [
                 {
