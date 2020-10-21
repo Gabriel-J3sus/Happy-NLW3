@@ -49,12 +49,6 @@ export default function SelectMapPosition() {
     <View style={styles.container}>
       <MapView 
         initialRegion={currentRegion}
-        // initialRegion={{
-        //   // latitude: -23.5340031,
-        //   // longitude: -46.5822032,
-        //   // latitudeDelta: 0.008,
-        //   // longitudeDelta: 0.008,
-        // }}
         style={styles.mapStyle}
         onPress={handleSelectMapPosition}
       >

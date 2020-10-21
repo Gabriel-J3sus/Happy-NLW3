@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
+import { getCurrentPositionAsync, requestPermissionsAsync } from 'expo-location';
 
 import mapMarker from '../images/map-marker.png';
 
@@ -17,14 +18,37 @@ interface Orphanage {
 }
 
 export default function OrphanagesMap() {
-  const [ orphanages, setOrphanages ] = useState<Orphanage[]>([]);
   const navigation = useNavigation();
-
+  const [ orphanages, setOrphanages ] = useState<Orphanage[]>([]);
+  const [ currentRegion, setCurrentRegion ] = useState(null);
+ 
   useFocusEffect(() => {
     api.get('orphanages').then(response => {
       setOrphanages(response.data);
     });
   });
+
+  useEffect(() => {
+    async function loadInitialPosition() {
+      const { granted } = await requestPermissionsAsync();
+
+      if (granted) {
+        const { coords } = await getCurrentPositionAsync({});
+
+        const { latitude, longitude } = coords;
+
+        setCurrentRegion({
+          latitude,
+          longitude,
+          latitudeDelta: 0.04,
+          longitudeDelta: 0.04,
+        })
+
+      }
+    }
+
+    loadInitialPosition();
+  }, [])
 
   function handleNavigateToOrphanageDetails(id: number) {
     navigation.navigate('OrphanageDetails', { id });
@@ -39,12 +63,7 @@ export default function OrphanagesMap() {
         <MapView 
           provider={PROVIDER_GOOGLE}
           style={styles.map} 
-          initialRegion={{
-            latitude: -23.5340031,
-            longitude: -46.5804767,
-            latitudeDelta: 0.008,
-            longitudeDelta: 0.008,
-          }}
+          initialRegion={currentRegion}
         >
           {orphanages.map(orphanage => {
             return (
