@@ -4,8 +4,10 @@ import multer from 'multer';
 import uploadConfig from './config/upload';
 import OrphanagesController from './controllers/OrphanagesController';
 
-
 import RegistrationsController from './controllers/RegistrationsController';
+import AuthController from './controllers/AuthController';
+
+import Jwt from './middlewares/Jwt';
 
 const routes = Router();
 const upload = multer(uploadConfig);
@@ -19,14 +21,17 @@ const upload = multer(uploadConfig);
 //Controllers: 
     //index, show, create, update, delete
     
-
+    
 routes.get('/orphanages', OrphanagesController.index);
 routes.get('/orphanages/:id', OrphanagesController.show);
 routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
-
+    
 routes.get('/register', RegistrationsController.index);
 routes.post('/register', RegistrationsController.create);
-routes.post('/authenticate', RegistrationsController.login);
+routes.post('/login', RegistrationsController.login);
+    
+routes.get('/auth', Jwt, AuthController.auth);
+
 
 //Rota - conjunto
 //Recurso - usuário
