@@ -26,6 +26,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [x] Página: cancelamento do cadastro (mobile);<br />
 - [x] Página: login, cadastro (web); <br />
 - [x] Fluxo de cadastro (web); <br />
+- [x] Fluxo de login (web); <br />
 - [x] Splash Screen (mobile); <br />
 - [x] Onboarding do usuário (mobile); <br />
 - [x] Real localização do usuário; <br />
