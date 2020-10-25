@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Landing from './pages/Landing';
-import OrphanagesMap from './pages/OrphanagesMap';
-import Orphanage from './pages/Orphanage';
-import CreateOrphanage from './pages/CreateOrphanage';
-import OrphanageSuccess from './pages/OrphanageSuccess';
+import Landing from '../pages/Landing';
+import OrphanagesMap from '../pages/OrphanagesMap';
+import Orphanage from '../pages/Orphanage';
 
-import Options from './pages/RestrictAccess/Options';
-import Register from './pages/RestrictAccess/Register';
-import Login from './pages/RestrictAccess/Login';
+
+import Options from '../pages/RestrictAccess/Options';
+import Register from '../pages/RestrictAccess/Register';
+import Login from '../pages/RestrictAccess/Login';
 
 function Routes() {
     return (
@@ -21,8 +20,8 @@ function Routes() {
                 <Route path="/login" component={Login} />
                 <Route path="/app" component={OrphanagesMap} />
 
-                <Route path="/orphanages/create" component={CreateOrphanage} />
-                <Route path="/orphanages/success" component={OrphanageSuccess} />
+                {/* <Route path="/orphanages/create" component={CreateOrphanage} />
+                <Route path="/orphanages/success" component={OrphanageSuccess} /> */}
                 <Route path="/orphanages/:id" component={Orphanage} />
 
 
