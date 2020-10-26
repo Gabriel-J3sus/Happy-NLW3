@@ -1,16 +1,22 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useContext } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-import RestrictAccess from '../../components/RestrictAccess';
 import api from '../../services/api';
+
+import AuthContext from '../../contexts/auth';
+
+import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/loginandregister.css';
 
 function Login() {
+    const { signed } = useContext(AuthContext);
+    
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    async function handleSubmit(event: FormEvent) {
+
+    async function handleSignIn(event: FormEvent) {
         event.preventDefault();
 
         const data = {
@@ -33,7 +39,7 @@ function Login() {
             </div>
             <div className="form-container">
                 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSignIn}>
                     <fieldset>
                         <legend> Fazer Login </legend>
 
