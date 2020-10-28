@@ -26,7 +26,6 @@ export default {
 
     
     async login(request: Request, response: Response) {
-        console.log(request.body)
         const { email, password } = request.body;
 
         const usersRepository = getRepository(Register);

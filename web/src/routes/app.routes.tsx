@@ -9,8 +9,8 @@ import Orphanage from '../pages/Orphanage';
 import Options from '../pages/RestrictAccess/Options';
 import Register from '../pages/RestrictAccess/Register';
 import Login from '../pages/RestrictAccess/Login';
-// import CreateOrphanage from '../pages/CreateOrphanage';
-// import OrphanageSuccess from '../pages/OrphanageSuccess';
+import CreateOrphanage from '../pages/CreateOrphanage';
+import OrphanageSuccess from '../pages/OrphanageSuccess';
 
 function AppRoutes() {
     return (
@@ -21,9 +21,9 @@ function AppRoutes() {
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
                 <Route path="/app" component={OrphanagesMap} />
-{/* 
+
                 <Route path="/orphanages/create" component={CreateOrphanage} />
-                <Route path="/orphanages/success" component={OrphanageSuccess} /> */}
+                <Route path="/orphanages/success" component={OrphanageSuccess} />
                 <Route path="/orphanages/:id" component={Orphanage} />
 
 

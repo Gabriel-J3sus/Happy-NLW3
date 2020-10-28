@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
-import AuthContext from '../../contexts/auth';
-
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/loginandregister.css';
 
 function Login() {
-    const { signed } = useContext(AuthContext);
-    
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -25,8 +21,10 @@ function Login() {
         };
 
         await api.post("login", data);
+        
 
         alert('ok');
+        console.log(data);
     }
 
 
