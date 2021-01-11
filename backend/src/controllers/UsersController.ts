@@ -7,8 +7,14 @@ import User from '../models/User';
 import users_view from '../views/users_view';
 
 export default {
-    index(request: Request, response: Response) {
-        return response.send({ userID: request.userId });
+    async show(request: Request, response: Response) {
+        const userId = request.userId;
+
+        const usersRepository = getRepository(User);
+
+        const user = await usersRepository.findOneOrFail(userId);
+
+        return response.json(users_view.render(user));
     },
 
     async create(request: Request, response: Response) {
@@ -40,6 +46,6 @@ export default {
 
         await usersRepository.save(user);
 
-        return response.status(201).json(users_view.render(user))
+        return response.status(201).json(user)
     },
 }
