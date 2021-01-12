@@ -25,6 +25,7 @@ routes.get('/orphanages/:id', OrphanagesController.show);
 routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
 
 routes.post('/users', UsersController.create);
+routes.get('/usersList', UsersController.index);
 routes.post('/auth', AuthController.authenticate);
 routes.get('/users', authMiddleware, UsersController.show);
 

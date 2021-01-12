@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiClock, FiInfo } from "react-icons/fi";
+import { FaWhatsapp } from 'react-icons/fa';
 import { Map, Marker, TileLayer } from "react-leaflet";
 import { useParams } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ interface Orphanage {
   longitude: number;
   name: string;
   about: string;
+  telefone: string;
   instruction: string;
   opening_hours: string;
   open_on_weekends: string;
@@ -31,9 +33,7 @@ export default function Orphanage() {
   const params = useParams<OrphanageParams>();
   const [orphanage, setOrphanage] = useState<Orphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-
-  const { id } = params;
-
+  
   useEffect(() => {
     api.get(`orphanages/${params.id}`).then(response => {
       setOrphanage(response.data);
@@ -43,11 +43,15 @@ export default function Orphanage() {
   if (!orphanage) {
     return <p>Carregando...</p>;
   }
-  
+
+  function sendWhatsapp() {
+    window.open(`whatsapp://send?phone=${orphanage?.telefone}`);
+  }
+
   return (
     <div id="page-orphanage">
       <Sidebar />
-
+    
       <main>
         <div className="orphanage-details">
           <img src={orphanage.images[activeImageIndex].url} alt={orphanage.name} />
@@ -121,10 +125,10 @@ export default function Orphanage() {
               )}
             </div>
 
-            {/* <button type="button" className="contact-button">
+            <button type="button" className="contact-button" onClick={sendWhatsapp}>
               <FaWhatsapp size={20} color="#FFF" />
               Entrar em contato
-            </button> */}
+            </button>
           </div>
         </div>
       </main>
