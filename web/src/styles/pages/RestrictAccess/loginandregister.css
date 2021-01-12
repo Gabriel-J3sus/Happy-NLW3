@@ -131,24 +131,5 @@
 
 #container .form-container form .about-password .forgot-password:hover {
     color: #12AFCB;
-}
-
-#container .form-container form .about-password .checkbox-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#container .form-container form .about-password .checkbox-container input {
-    width: 24px;
-    height: 24px;
-    
-}
-
-#container .form-container form .about-password .checkbox-container label {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    color: #8FA7B3;
-    margin-left: 16px;
+    text-decoration: underline ;
 }

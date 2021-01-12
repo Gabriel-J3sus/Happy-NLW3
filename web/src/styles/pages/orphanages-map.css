@@ -43,7 +43,7 @@
     z-index: 5;
 }
 
-#page-map .create-orphanage {
+#page-map .create-orphanage, .return-to-landing {
     position: absolute;
     right: 40px;
     bottom: 40px;
@@ -62,7 +62,12 @@
     transition: background-color 0.2s;
 }
 
-#page-map .create-orphanage:hover {
+#page-map .return-to-landing {
+    top: 40px;
+    bottom: 0;
+}
+
+#page-map .create-orphanage:hover, .return-to-landing:hover {
      background: #17d6eb
 }
 

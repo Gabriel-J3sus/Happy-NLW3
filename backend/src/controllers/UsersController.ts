@@ -7,6 +7,14 @@ import User from '../models/User';
 import users_view from '../views/users_view';
 
 export default {
+    async index (request: Request, response: Response) {
+        const usersRepository = getRepository(User);
+
+        const users = await usersRepository.find();
+
+        return response.status(200).json(users);
+    },
+
     async show(request: Request, response: Response) {
         const userId = request.userId;
 

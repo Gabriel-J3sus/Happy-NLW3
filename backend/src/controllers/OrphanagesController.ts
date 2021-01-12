@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import { formatToPhone } from 'brazilian-values'
 import orphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
@@ -34,6 +35,7 @@ export default {
             latitude,
             longitude,
             about,
+            telefone,
             instructions,
             opening_hours,
             open_on_weekends,
@@ -52,6 +54,7 @@ export default {
             latitude,
             longitude,
             about,
+            telefone,
             instructions,
             opening_hours,
             open_on_weekends: open_on_weekends === 'true',
@@ -63,6 +66,7 @@ export default {
             latitude: Yup.number().required(),
             longitude: Yup.number().required(),
             about: Yup.string().required().max(300),
+            telefone: Yup.string().required(),
             instructions: Yup.string().required(),
             opening_hours: Yup.string().required(),
             open_on_weekends: Yup.boolean().required(),
@@ -76,6 +80,8 @@ export default {
         await schema.validate(data, {
             abortEarly: false,
         });
+
+        data.telefone = formatToPhone(data.telefone);
 
         const orphanage = orphanagesRepository.create(data);
     

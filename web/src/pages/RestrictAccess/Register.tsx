@@ -17,16 +17,16 @@ function Register() {
         event.preventDefault();
 
         const data = {
-            "name": name,
-            "email": email,
-            "password": password,
+            name,
+            email,
+            password,
         };
 
-        await api.post('register', data);
+        await api.post('users', data);
 
         alert("Cadastro realizado com sucesso");
 
-        history.push('/');
+        history.push('/login');
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useContext } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
@@ -16,15 +16,15 @@ function Login() {
         event.preventDefault();
 
         const data = {
-            "email": email,
-            "password": password,
+            email,
+            password,
         };
 
-        await api.post("login", data);
-        
+        const response = await api.post("auth", data);
+
+        console.log(response.data);
 
         alert('ok');
-        console.log(data);
     }
 
 
@@ -62,11 +62,6 @@ function Login() {
                         </div>
 
                         <div className="about-password">
-                            <div className="checkbox-container">
-                                <input id="check" type="checkbox"/> 
-                                <label htmlFor="check">Lembra-me</label>
-                            </div>
-
                             <Link to="/" className="forgot-password">
                                 Esqueci minha senha
                             </Link>

@@ -19,6 +19,9 @@ export default class Orphanage {
     about: string;
 
     @Column()
+    telefone: string;
+
+    @Column()
     instructions: string;
 
     @Column()
