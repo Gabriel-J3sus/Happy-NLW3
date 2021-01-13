@@ -1,15 +1,16 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import AppRoutes from './app.routes';
-// import SignedRoutes from './singned.routes';
+// import AppRoutes from './app.routes';
+import AuthRoutes from './auth.routes';
 
 
 function Routes() {
     return (
-        <>
-            <AppRoutes />
-            {/* <SignedRoutes /> */}
-        </>
+        <BrowserRouter>
+            {/* <AppRoutes /> */}
+            <AuthRoutes />
+        </BrowserRouter>
     );
 }
 
