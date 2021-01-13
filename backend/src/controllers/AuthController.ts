@@ -38,7 +38,7 @@ export default {
 
         const token = jwt.sign({ id: user.id }, 'secret', { expiresIn: '1d' }); //Creating Token
 
-        return response.json([ users_view.render(user), { token: token } ])
+        return response.json([ users_view.render(user), token ])
         
     }
 }

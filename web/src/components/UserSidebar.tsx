@@ -3,10 +3,12 @@ import { CgLogOff } from 'react-icons/cg';
 import { GoLocation } from 'react-icons/go';
 import { FiAlertCircle } from 'react-icons/fi';
 
+import { useAuth } from '../contexts/auth';
+
 import mapMarkerImg from '../images/map-marker.svg';
 
 import '../styles/components/userSidebar.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 interface Button {
     status: string;
@@ -14,10 +16,16 @@ interface Button {
 }
 
 export default function UserSidebar({ status, navigate }: Button) {
+    const history = useHistory()
+    const { signOut } = useAuth();
+
     const statusLocationColors = status === "location" ?  { color: "#0089A5", background: "#FFD666" } : { color: "#FFF", background: "#12AFCB", };
     const statusWarningColors = status === "warning" ? { color: "#0089A5", background: "#FFD666" } : { color: "#FFF", background: "#12AFCB", };
     
-    function logOff() {}
+    function handleSignOut() {
+        signOut();
+        history.push('/login');
+    }
 
     return (
         <aside className="app-sidebar">
@@ -38,7 +46,7 @@ export default function UserSidebar({ status, navigate }: Button) {
             </main>
 
             <footer>
-                <button type="button" onClick={logOff}>
+                <button type="button" onClick={handleSignOut}>
                     <CgLogOff size={24} color="#FFF" />
                 </button>
             </footer>
