@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import Landing from '../pages/Landing';
 import OrphanagesMap from '../pages/OrphanagesMap';
@@ -10,14 +10,22 @@ import Login from '../pages/RestrictAccess/Login';
 
 function AuthRoutes() {
     return (
-        <Switch>
-            <Route path="/" exact component={Landing} />
-            <Route path="/options" component={Options} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/app" component={OrphanagesMap} />
-            <Route path="/orphanages/:id" component={Orphanage} />
-        </Switch>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/" exact component={Landing} />
+                <Route path="/options" component={Options} />
+                <Route path="/register" component={Register} />
+                <Route path="/login" component={Login} />
+                <Route path="/app" component={OrphanagesMap} />
+                <Route path="/orphanages/:id" component={Orphanage} />
+
+                <Redirect from='/users/orphanages' to="/" />
+                <Redirect from='/users/pending' to="/" />
+                <Redirect from='/orphanages/create' to="/" />
+                <Redirect from='/orphanages/success' to="/" />
+
+            </Switch>
+        </BrowserRouter>
         
     );
 }

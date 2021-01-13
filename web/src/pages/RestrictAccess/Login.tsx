@@ -1,13 +1,16 @@
 import React, { FormEvent, useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
-import api from '../../services/api';
-
+import { useAuth } from '../../contexts/auth';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/loginandregister.css';
 
 function Login() {
+    const history = useHistory()
+
+    const { signIn } = useAuth();
+
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -15,16 +18,9 @@ function Login() {
     async function handleSignIn(event: FormEvent) {
         event.preventDefault();
 
-        const data = {
-            email,
-            password,
-        };
+        signIn(email, password);
 
-        const response = await api.post("auth", data);
-
-        console.log(response.data);
-
-        alert('ok');
+        history.push('/users/orphanages')
     }
 
 
