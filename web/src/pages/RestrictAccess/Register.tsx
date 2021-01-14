@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
-import { FiArrowLeft } from 'react-icons/fi';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import RestrictAccess from '../../components/RestrictAccess';
 import api from '../../services/api';
-import '../../styles/pages/RestrictAccess/loginandregister.css';
+import ArrowButton from '../../components/ArrowButton';
+import RestrictAccess from '../../components/RestrictAccess';
+import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function Register() {
     const history = useHistory();
@@ -31,11 +31,8 @@ function Register() {
 
     return (
         <div id="container">
-            <div className="buttons">
-                <Link to="/options" className="arrow">
-                    <FiArrowLeft size={32} color="#12AFCB" />
-                </Link>
-            </div>
+            <ArrowButton goBack="/options"/>
+            
             <div className="form-container">  
                 <form onSubmit={handleSubmit}>
                     <fieldset>

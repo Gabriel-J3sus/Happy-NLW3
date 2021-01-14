@@ -12,10 +12,9 @@ import { Link, useHistory } from 'react-router-dom';
 
 interface Button {
     status: string;
-    navigate: string;
 }
 
-export default function UserSidebar({ status, navigate }: Button) {
+function UserSidebar({ status }: Button) {
     const history = useHistory()
     const { signOut } = useAuth();
 
@@ -32,17 +31,17 @@ export default function UserSidebar({ status, navigate }: Button) {
             <img src={mapMarkerImg} alt="Happy" />
 
             <main>
-                <div className="location" style={{ background: `${statusLocationColors.background}`}}>
-                    <Link to={`${navigate}`}>
-                        <GoLocation size={24} color={`${statusLocationColors.color}`}/>
-                    </Link >
-                </div>
+                <Link to="/users/orphanages">
+                    <div className="location" style={{ background: `${statusLocationColors.background}`}}>
+                        <GoLocation size={24} color={`${statusLocationColors.color}`} />
+                    </div>
+                </Link >
 
-                <div className="warning" style={{ background: `${statusWarningColors.background}` }}>
-                    <Link to={`${navigate}`}>
+                <Link to="/users/pending">
+                    <div className="warning" style={{ background: `${statusWarningColors.background}` }}>
                         <FiAlertCircle size={24} color={`${statusWarningColors.color}`} />
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             </main>
 
             <footer>
@@ -54,3 +53,5 @@ export default function UserSidebar({ status, navigate }: Button) {
 
     );
 }
+
+export default UserSidebar;

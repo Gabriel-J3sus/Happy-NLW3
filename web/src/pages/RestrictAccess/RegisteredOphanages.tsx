@@ -8,8 +8,8 @@ function RegisteredOrphanages() {
 
     return (
         <>
-            <UserSidebar status="location" navigate="/users/pending"/>
-            <h1>{user?.id}</h1>
+            <UserSidebar status="location" />
+            <h1>{user?.email}</h1>
         </>
     );
 }

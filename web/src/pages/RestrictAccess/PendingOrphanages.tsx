@@ -4,7 +4,7 @@ import UserSidebar from '../../components/UserSidebar';
 
 function PendingOrphanages() {
     return (
-        <UserSidebar status="warning" navigate="/users/orphanages" />
+        <UserSidebar status="warning" />
     );
 }
 

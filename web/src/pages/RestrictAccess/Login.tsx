@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
-import { FiArrowLeft } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/auth';
+import ArrowButton from '../../components/ArrowButton';
 import RestrictAccess from '../../components/RestrictAccess';
-import '../../styles/pages/RestrictAccess/loginandregister.css';
+import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function Login() {
     const history = useHistory()
@@ -26,11 +26,8 @@ function Login() {
 
     return (
         <div id="container">
-            <div className="buttons">
-                <Link to="/options" className="arrow">
-                    <FiArrowLeft size={32} color="#12AFCB" />
-                </Link>
-            </div>
+            <ArrowButton goBack="/options" />
+            
             <div className="form-container">
                 
                 <form onSubmit={handleSignIn}>
@@ -58,7 +55,7 @@ function Login() {
                         </div>
 
                         <div className="about-password">
-                            <Link to="/" className="forgot-password">
+                            <Link to="/forgot" className="forgot-password">
                                 Esqueci minha senha
                             </Link>
                         </div>

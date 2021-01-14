@@ -19,6 +19,8 @@ function AppRoutes() {
                 <Redirect from="/options" to="/users/orphanages" />
                 <Redirect from="/register" to="/users/orphanages" />
                 <Redirect from="/login" to="/users/orphanages" />
+                <Redirect from="/forgot" to="/users/orphanages" />
+                <Redirect from="/password" to="/users/orphanages" />
                 <Redirect from="/app" to="/users/orphanages" />
                 <Redirect from="/orphanages/:id" to="/users/orphanages" />
 

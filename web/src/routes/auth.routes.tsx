@@ -7,6 +7,8 @@ import Orphanage from '../pages/Orphanage';
 import Options from '../pages/RestrictAccess/Options';
 import Register from '../pages/RestrictAccess/Register';
 import Login from '../pages/RestrictAccess/Login';
+import ForgotPassword from '../pages/RestrictAccess/ForgotPassword';
+import NewPassword from '../pages/RestrictAccess/NewPassword';
 
 function AuthRoutes() {
     return (
@@ -16,6 +18,8 @@ function AuthRoutes() {
                 <Route path="/options" component={Options} />
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
+                <Route path="/forgot" component={ForgotPassword} />
+                <Route path="/password" component={NewPassword} />
                 <Route path="/app" component={OrphanagesMap} />
                 <Route path="/orphanages/:id" component={Orphanage} />
 

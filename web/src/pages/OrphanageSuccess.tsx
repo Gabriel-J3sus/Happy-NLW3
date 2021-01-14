@@ -18,7 +18,7 @@ function OrphanageSuccess() {
                     <p>O cadastro deu certo e foi enviado ao administrador para ser aprovado. Agora é só esperar :)
                     </p>
 
-                    <Link to="/app" className="back-to-map">
+                    <Link to="/users/orphanages" className="back-to-map">
                         Voltar para o mapa
                     </Link>
                 </main>

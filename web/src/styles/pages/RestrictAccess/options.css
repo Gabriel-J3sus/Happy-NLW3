@@ -96,5 +96,6 @@
 }
 
 #options .buttons .arrow:hover {
-    margin-top: 35px;
+    opacity: 0.8;
+    transform: scale(1.04);
 }
