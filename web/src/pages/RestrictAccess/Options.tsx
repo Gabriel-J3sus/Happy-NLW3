@@ -1,7 +1,6 @@
 import React from 'react';
-import { FiArrowLeft } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 
+import { ArrowButton, OptionButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/options.css';
 
@@ -9,18 +8,13 @@ function Options() {
     return (
         <div id="options">           
             <div className="buttons">
-                <Link to="/" className="arrow">
-                    <FiArrowLeft size={32} color="#12AFCB" />
-                </Link>
-            
-                <Link to="/register" className="first-button">
-                    Cadastro
-                </Link>
+                <ArrowButton goBack="/" />
 
-                <Link to="/login" className="second-button">
-                    Login
-                </Link>
+                <OptionButton goBack="/register" title="Cadastrar" />
+                    
+                <OptionButton goBack="/login" title="Login" />
             </div>
+
 
             <RestrictAccess />
             

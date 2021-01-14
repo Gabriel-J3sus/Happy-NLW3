@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
-import ArrowButton from '../../components/ArrowButton';
+import { ArrowButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 

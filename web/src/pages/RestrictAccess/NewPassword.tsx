@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RestrictAccess from '../../components/RestrictAccess';
-import ArrowButton from '../../components/ArrowButton';
+import { ArrowButton } from '../../components/Buttons';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function ForgotPassword() {
