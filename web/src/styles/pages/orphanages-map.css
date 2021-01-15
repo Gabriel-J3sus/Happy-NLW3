@@ -43,34 +43,6 @@
     z-index: 5;
 }
 
-#page-map .create-orphanage, .return-to-landing {
-    position: absolute;
-    right: 40px;
-    bottom: 40px;
-
-    z-index: 10;
-
-    width: 64px;
-    height: 64px;
-    background: #15c3d6;
-    border-radius: 20px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: background-color 0.2s;
-}
-
-#page-map .return-to-landing {
-    top: 40px;
-    bottom: 0;
-}
-
-#page-map .create-orphanage:hover, .return-to-landing:hover {
-     background: #17d6eb
-}
-
 #page-map .map-popup .leaflet-popup-content-wrapper {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;

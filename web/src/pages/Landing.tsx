@@ -1,10 +1,9 @@
 import React from 'react';
-import { FiArrowRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 
 import '../styles/pages/landing.css';
 
 import logoImg from '../images/logo.svg';
+import { ArrowRightButton, TextButton } from '../components/Buttons';
 
 
 function Landing() {
@@ -25,13 +24,9 @@ function Landing() {
             <p>Visite orfanatos e mude o dia de muitas crianças</p>
           </main>
 
-          <Link to="/options" className="register-or-login">
-            Acesso restrito 
-          </Link>
-  
-          <Link to="/app" className="enter-app">
-            <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
-          </Link>
+          <TextButton go="/options" buttonClass="register-or-login" title="Acesso restrito"/>
+
+          <ArrowRightButton go="/app" buttonClass="enter-app" iconSize={26} color="rgba(0,0,0,0.6)"/>
   
         </div>
       </div>

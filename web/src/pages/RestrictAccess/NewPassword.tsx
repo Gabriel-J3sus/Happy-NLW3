@@ -1,13 +1,13 @@
 import React from 'react';
 
 import RestrictAccess from '../../components/RestrictAccess';
-import { ArrowButton } from '../../components/Buttons';
+import { ArrowLeftButton } from '../../components/Buttons';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function ForgotPassword() {
     return (
         <div id="container">
-            <ArrowButton goBack="/forgot"/>
+            <ArrowLeftButton go="/forgot" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
             
             <div className="form-container">
                 

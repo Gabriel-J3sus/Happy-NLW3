@@ -1,3 +1,25 @@
+.enter-app {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 80px;
+    height: 80px;
+    background: #ffd666;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s;
+}
+
+.enter-app:hover {
+    background: #96FEFF;
+}
+
+
 .arrow {
     position: absolute;
     top: 0;
@@ -51,4 +73,60 @@
     color: #FFD666;
     border: 2px solid #FFD666;
     transform: scale(1.1);
+}
+
+.create-orphanage, .return-to-landing {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+
+    z-index: 10;
+
+    width: 64px;
+    height: 64px;
+    background: #15c3d6;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-color 0.2s;
+}
+
+.return-to-landing {
+    top: 40px;
+    bottom: 0;
+}
+
+.create-orphanage, .return-to-landing:hover {
+     background: #17d6eb
+}
+
+.register-or-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+
+    width: 222px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #12D4E0;
+    color: #FFF;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 30px;
+    text-decoration: none;
+
+    transition: all ease 0.5s;
+}
+
+.register-or-login:hover {
+    background: #96FEFF;
+    color: #15C3D6;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ArrowButton, OptionButton } from '../../components/Buttons';
+import { ArrowLeftButton, TextButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/options.css';
 
@@ -8,11 +8,11 @@ function Options() {
     return (
         <div id="options">           
             <div className="buttons">
-                <ArrowButton goBack="/" />
+                <ArrowLeftButton go="/" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
 
-                <OptionButton goBack="/register" title="Cadastrar" />
+                <TextButton go="/register" title="Cadastrar" buttonClass="option-button"/>
                     
-                <OptionButton goBack="/login" title="Login" />
+                <TextButton go="/login" title="Login" buttonClass="option-button"/>
             </div>
 
 

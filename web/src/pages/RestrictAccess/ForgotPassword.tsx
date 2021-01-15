@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ArrowButton } from '../../components/Buttons';
+import { ArrowLeftButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function ForgotPassword() {
     return (
         <div id="container">
-            <ArrowButton goBack="/login" />
+            <ArrowLeftButton go="/login" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
 
             <div className="form-container">
                 

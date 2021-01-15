@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiPlus, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import mapMarkerImg from '../images/map-marker.svg';
@@ -8,6 +6,7 @@ import mapIcon from '../utils/mapIcon';
 import api from '../services/api';
 
 import '../styles/pages/orphanages-map.css';
+import { ArrowLeftButton, ArrowRightButton, PlusButton } from '../components/Buttons';
 
 
 interface Orphanage {
@@ -78,22 +77,17 @@ function OrphanagesMap() {
                         >
                             <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
                                 {orphanage.name}
-                                <Link to={`/orphanages/${orphanage.id}`}>
-                                    <FiArrowRight size={20} color="#FFF" />
-                                </Link>
+                                
+                                <ArrowRightButton go={`/orphanages/${orphanage.id}`} buttonClass="" iconSize={20} color="#FFF"/>
                             </Popup>
                         </Marker>
                     );
                 })}                
             </Map>
             
-            <Link to="/" className="return-to-landing">
-                <FiArrowLeft size={32} color="#FFF" />
-            </Link>
+            <ArrowLeftButton go="/" buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
 
-            <Link to="/orphanages/create" className="create-orphanage">
-                <FiPlus size={32} color="#FFF" />
-            </Link>
+            <PlusButton go="/orphanages/create" buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
         </div>
     );
 }
