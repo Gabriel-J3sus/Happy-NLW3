@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../contexts/auth';
 import { ArrowLeftButton } from '../../components/Buttons';
@@ -7,8 +7,6 @@ import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function Login() {
-    const history = useHistory()
-
     const { signIn } = useAuth();
 
     const [ email, setEmail ] = useState('');
@@ -18,9 +16,7 @@ function Login() {
     async function handleSignIn(event: FormEvent) {
         event.preventDefault();
 
-        signIn(email, password);
-
-        history.push('/users/orphanages')
+        await signIn(email, password);  
     }
 
 

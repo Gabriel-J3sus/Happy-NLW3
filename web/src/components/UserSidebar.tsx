@@ -16,7 +16,7 @@ interface Button {
 
 function UserSidebar({ status }: Button) {
     const history = useHistory()
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
 
     const statusLocationColors = status === "location" ?  { color: "#0089A5", background: "#FFD666" } : { color: "#FFF", background: "#12AFCB", };
     const statusWarningColors = status === "warning" ? { color: "#0089A5", background: "#FFD666" } : { color: "#FFF", background: "#12AFCB", };
@@ -31,13 +31,13 @@ function UserSidebar({ status }: Button) {
             <img src={mapMarkerImg} alt="Happy" />
 
             <main>
-                <Link to="/users/orphanages">
+                <Link to={`/${user?.name}/orphanages`}>
                     <div className="location" style={{ background: `${statusLocationColors.background}`}}>
                         <GoLocation size={24} color={`${statusLocationColors.color}`} />
                     </div>
                 </Link >
 
-                <Link to="/users/pending">
+                <Link to={`/${user?.name}/pending`}>
                     <div className="warning" style={{ background: `${statusWarningColors.background}` }}>
                         <FiAlertCircle size={24} color={`${statusWarningColors.color}`} />
                     </div>

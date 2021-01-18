@@ -5,24 +5,27 @@ import RegisteredOrphanages from '../pages/RestrictAccess/RegisteredOphanages';
 import PendingOrphanages from '../pages/RestrictAccess/PendingOrphanages';
 import CreateOrphanage from '../pages/CreateOrphanage';
 import OrphanageSuccess from '../pages/OrphanageSuccess';
+import { useAuth } from '../contexts/auth';
 
 function AppRoutes() {
+    const { user } = useAuth();
+
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/users/orphanages" exact component={RegisteredOrphanages} />
-                <Route path="/users/pending" component={PendingOrphanages} />
+                <Route path={`/${user?.name}/orphanages`} exact component={RegisteredOrphanages} />
+                <Route path={`/${user?.name}/pending`} component={PendingOrphanages} />
                 <Route path="/orphanages/create" component={CreateOrphanage} />
                 <Route path="/orphanages/success" component={OrphanageSuccess} />        
                 
-                <Redirect from="/" to="/users/orphanages" />
-                <Redirect from="/options" to="/users/orphanages" />
-                <Redirect from="/register" to="/users/orphanages" />
-                <Redirect from="/login" to="/users/orphanages" />
-                <Redirect from="/forgot" to="/users/orphanages" />
-                <Redirect from="/password" to="/users/orphanages" />
-                <Redirect from="/app" to="/users/orphanages" />
-                <Redirect from="/orphanages/:id" to="/users/orphanages" />
+                <Redirect from="/" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/options" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/register" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/login" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/forgot" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/password" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/app" to={`/${user?.name}/orphanages`} />
+                <Redirect from="/orphanages/:id" to={`/${user?.name}/orphanages`} />
 
             </Switch>    
         </BrowserRouter>

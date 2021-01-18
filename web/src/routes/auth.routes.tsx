@@ -9,8 +9,11 @@ import Register from '../pages/RestrictAccess/Register';
 import Login from '../pages/RestrictAccess/Login';
 import ForgotPassword from '../pages/RestrictAccess/ForgotPassword';
 import NewPassword from '../pages/RestrictAccess/NewPassword';
+import { useAuth } from '../contexts/auth';
 
 function AuthRoutes() {
+    const { user } = useAuth();
+
     return (
         <BrowserRouter>
             <Switch>
@@ -23,8 +26,8 @@ function AuthRoutes() {
                 <Route path="/app" component={OrphanagesMap} />
                 <Route path="/orphanages/:id" component={Orphanage} />
 
-                <Redirect from='/users/orphanages' to="/" />
-                <Redirect from='/users/pending' to="/" />
+                <Redirect from={`/${user?.name}/orphanages`} to="/" />
+                <Redirect from={`/${user?.name}/pending`} to="/" />
                 <Redirect from='/orphanages/create' to="/" />
                 <Redirect from='/orphanages/success' to="/" />
 

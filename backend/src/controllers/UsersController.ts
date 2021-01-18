@@ -21,7 +21,7 @@ export default {
         const usersRepository = getRepository(User);
 
         const user = await usersRepository.findOneOrFail(userId);
-
+        
         return response.json(users_view.render(user));
     },
 

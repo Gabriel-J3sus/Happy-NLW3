@@ -27,7 +27,7 @@ routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
 routes.post('/users', UsersController.create);
 routes.get('/usersList', UsersController.index);
 routes.post('/auth', AuthController.authenticate);
-routes.get('/users', authMiddleware, UsersController.show);
+routes.post('/token', authMiddleware, UsersController.show);
 
 //Rota - conjunto
 //Recurso - usuário
