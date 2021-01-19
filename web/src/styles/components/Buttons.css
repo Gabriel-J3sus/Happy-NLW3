@@ -75,7 +75,7 @@
     transform: scale(1.1);
 }
 
-.create-orphanage, .return-to-landing {
+.create-orphanage, .go-to-map, .return-to-landing {
     position: absolute;
     right: 40px;
     bottom: 40px;
@@ -94,12 +94,16 @@
     transition: background-color 0.2s;
 }
 
+.go-to-map {
+    bottom: 114px;
+}
+
 .return-to-landing {
     top: 40px;
     bottom: 0;
 }
 
-.create-orphanage, .return-to-landing:hover {
+.create-orphanage:hover, .go-to-map:hover, .return-to-landing:hover {
      background: #17d6eb
 }
 

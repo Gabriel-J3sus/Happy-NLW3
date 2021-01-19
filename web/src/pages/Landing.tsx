@@ -24,7 +24,7 @@ function Landing() {
             <p>Visite orfanatos e mude o dia de muitas crianças</p>
           </main>
 
-          <TextButton go="/options" buttonClass="register-or-login" title="Acesso restrito"/>
+          <TextButton go="/login" buttonClass="register-or-login" title="Acesso restrito"/>
 
           <ArrowRightButton go="/app" buttonClass="enter-app" iconSize={26} color="rgba(0,0,0,0.6)"/>
   

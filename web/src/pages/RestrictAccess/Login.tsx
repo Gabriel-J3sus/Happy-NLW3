@@ -22,9 +22,9 @@ function Login() {
 
     return (
         <div id="container">
-            <ArrowLeftButton go="/options" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
+            <ArrowLeftButton go="/" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
             
-            <div className="form-container">
+            <div className="form-container" style={{ marginBottom: 75 }}>
                 
                 <form onSubmit={handleSignIn}>
                     <fieldset>
@@ -60,8 +60,14 @@ function Login() {
                     <button type="submit" className="enter">
                         Entrar
                     </button>
+                    
                 </form>
                 
+                    
+                <Link to="/register" className="create-account">
+                    Criar uma conta
+                </Link>
+                    
             </div>
 
             <RestrictAccess />

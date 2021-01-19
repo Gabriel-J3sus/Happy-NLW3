@@ -1,9 +1,9 @@
-#page-registered-orphanages {
+#dashboard {
     display: flex;
     min-height: 100vh;
 }
 
-#page-registered-orphanages main {
+#dashboard main {
     flex: 1;
 }
 
@@ -40,6 +40,11 @@
     color: #8FA7B3;
 }
 
+.empty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .wrapper .container {
     display: grid;

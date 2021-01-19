@@ -31,9 +31,9 @@ function Register() {
 
     return (
         <div id="container">
-            <ArrowLeftButton go="/options" buttonClass="arrow" iconSize={32}  color="#12AFCB"/>
+            <ArrowLeftButton go="/login" buttonClass="arrow" iconSize={32}  color="#12AFCB"/>
             
-            <div className="form-container">  
+            <div className="form-container" style={{ marginBottom: 150 }}>  
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend> Criar cadastro </legend>

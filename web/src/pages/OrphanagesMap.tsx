@@ -7,7 +7,8 @@ import api from '../services/api';
 
 import '../styles/pages/orphanages-map.css';
 import { ArrowLeftButton, ArrowRightButton, PlusButton } from '../components/Buttons';
-
+import { useAuth } from '../contexts/auth';
+import { useHistory } from 'react-router-dom';
 
 interface Orphanage {
     id: number;
@@ -17,6 +18,8 @@ interface Orphanage {
 }
 
 function OrphanagesMap() {
+    const { signed, user } = useAuth();
+
     const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
@@ -85,9 +88,11 @@ function OrphanagesMap() {
                 })}                
             </Map>
             
-            <ArrowLeftButton go="/" buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
-
-            <PlusButton go="/orphanages/create" buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
+            {/*if user is signed*/}
+            <ArrowLeftButton go={signed ? `/${user?.name}/orphanages` : "/"} buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
+            
+            {/*if user is signed*/}
+            <PlusButton go={signed ? "/orphanages/create" : "/login"} buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
         </div>
     );
 }

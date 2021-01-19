@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowLeft, FiArrowRight, FiPlus } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiPlus, FiMapPin } from 'react-icons/fi';
 
 import '../styles/components/Buttons.css';
 
@@ -32,6 +32,14 @@ export const PlusButton = ({ go, buttonClass, iconSize, color }: Options) => {
     return (
         <Link to={go} className={buttonClass}>
             <FiPlus size={iconSize} color={color} />
+        </Link>
+    );
+}
+
+export const MapButton = ({ go, buttonClass, iconSize, color }: Options) => {
+    return (
+        <Link to={go} className={buttonClass}>
+            <FiMapPin size={iconSize} color={color} />
         </Link>
     );
 }

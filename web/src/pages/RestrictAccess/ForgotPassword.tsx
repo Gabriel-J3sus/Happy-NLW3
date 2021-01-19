@@ -10,7 +10,7 @@ function ForgotPassword() {
         <div id="container">
             <ArrowLeftButton go="/login" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
 
-            <div className="form-container">
+            <div className="form-container" style={{ marginBottom: 150 }}>
                 
                 <form onSubmit={() => {}}>
                     <fieldset>
