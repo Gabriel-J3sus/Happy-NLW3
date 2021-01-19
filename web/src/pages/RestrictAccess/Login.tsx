@@ -16,7 +16,9 @@ function Login() {
     async function handleSignIn(event: FormEvent) {
         event.preventDefault();
 
-        await signIn(email, password);  
+        const data = { email, password }
+
+        await signIn(data, "auth");  
     }
 
 

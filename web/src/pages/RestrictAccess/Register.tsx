@@ -1,13 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
-import api from '../../services/api';
+import { useAuth } from '../../contexts/auth';
 import { ArrowLeftButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function Register() {
-    const history = useHistory();
+    const { signIn } = useAuth();
 
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -16,17 +15,9 @@ function Register() {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        const data = {
-            name,
-            email,
-            password,
-        };
+        const data = { name, email, password };
 
-        await api.post('users', data);
-
-        alert("Cadastro realizado com sucesso");
-
-        history.push('/login');
+        await signIn(data, "users");
     }
 
     return (

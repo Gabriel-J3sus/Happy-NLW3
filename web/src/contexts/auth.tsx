@@ -11,7 +11,7 @@ interface User {
 interface AuthContextData {
     signed: boolean;
     user: User | null;
-    signIn(email: string, password: string): Promise<any>;
+    signIn(data: object, route: string): Promise<any>;
     signOut(): void;
 }
 
@@ -41,13 +41,12 @@ export const AuthProvider: React.FC = ({ children }) => {
         authorization()
     }, []);
 
-    async function signIn(email: string, password: string) {
-        const data = { email, password }
+    async function signIn(data: object, route: string) {
 
-        const response = await api.post("auth", data); //api response
+        const response = await api.post(route, data); //api response and request, login or create user
         
         const authResponse = await api.post('token', { headers: {'Authorization': api.defaults.headers.authorization = `Bearer ${response.data[1]}`} }) //headers
-        
+
         setUser(authResponse.data);
 
         localStorage.setItem('@HappyAuth:user', JSON.stringify(response.data[0]));

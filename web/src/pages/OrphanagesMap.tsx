@@ -5,10 +5,9 @@ import mapMarkerImg from '../images/map-marker.svg';
 import mapIcon from '../utils/mapIcon';
 import api from '../services/api';
 
+import { useAuth } from '../contexts/auth'; 
 import '../styles/pages/orphanages-map.css';
 import { ArrowLeftButton, ArrowRightButton, PlusButton } from '../components/Buttons';
-import { useAuth } from '../contexts/auth';
-import { useHistory } from 'react-router-dom';
 
 interface Orphanage {
     id: number;
@@ -59,7 +58,7 @@ function OrphanagesMap() {
 
                 <footer>
                     <strong>São Paulo</strong>
-                    <span>Santa Catarina</span>
+                    <span>São Paulo</span>
                 </footer>
             </aside>
 

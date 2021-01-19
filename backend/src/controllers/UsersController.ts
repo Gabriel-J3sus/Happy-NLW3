@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import crypto from 'crypto';
 import * as Yup from 'yup';
+import jwt from 'jsonwebtoken';
 
 import User from '../models/User';
 import users_view from '../views/users_view';
@@ -54,6 +55,8 @@ export default {
 
         await usersRepository.save(user);
 
-        return response.status(201).json(user)
+        const token = jwt.sign({ id: user.id }, 'secret', { expiresIn: '1d' }); //Creating token
+
+        return response.status(201).json([ users_view.render(user), token ])
     },
 }
