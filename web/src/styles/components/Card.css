@@ -1,0 +1,52 @@
+.card {
+    width: 450px;
+    height: 309px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #FFF;
+    border: 1px solid #D3E2E5;
+    border-radius: 20px;
+}
+
+.card footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px 32px;
+}
+
+.card footer h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34px;
+
+    color: #4D6F80;
+}
+
+.card footer .buttons {
+    display: flex;
+}
+
+.card footer .buttons .edit, .delete {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #EBF2F5;
+    border: 0;
+    border-radius: 16px;
+    transition: 0.2s;
+}
+
+.card footer .buttons .edit:hover, .delete:hover {
+    opacity: 0.7;
+}
+
+.card footer .buttons .edit {
+    margin-right: 8px;
+}

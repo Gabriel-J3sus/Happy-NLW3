@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UserSidebar from '../../components/UserSidebar';
+import UserSidebar from '../../../components/UserSidebar';
 
 function PendingOrphanages() {
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import RegisteredOrphanages from '../pages/RestrictAccess/RegisteredOphanages';
-import PendingOrphanages from '../pages/RestrictAccess/PendingOrphanages';
+import RegisteredOrphanages from '../pages/RestrictAccess/Dashboard/RegisteredOphanages';
+import PendingOrphanages from '../pages/RestrictAccess/Dashboard/PendingOrphanages';
 import CreateOrphanage from '../pages/CreateOrphanage';
 import OrphanageSuccess from '../pages/OrphanageSuccess';
 import { useAuth } from '../contexts/auth';
