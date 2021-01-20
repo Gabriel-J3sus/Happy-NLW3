@@ -55,7 +55,9 @@ export default {
 
         const id = crypto.randomBytes(8).toString('hex');        
 
-        const user = usersRepository.create({ id, name, email, password });
+        const createdAt = new Date();
+
+        const user = usersRepository.create({ id, name, email, password, createdAt });
         
         await usersRepository.save(user);
 

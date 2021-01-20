@@ -7,6 +7,7 @@ export default {
             id: user.id,
             name: user.name,
             email: user.email,
+            createdAt: user.createdAt,
             orphanages: user.orphanages
         };
     },
