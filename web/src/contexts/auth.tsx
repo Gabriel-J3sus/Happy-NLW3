@@ -35,6 +35,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                 })//heders
     
                 setUser(JSON.parse(storagedUser));
+                
             }
         }
 

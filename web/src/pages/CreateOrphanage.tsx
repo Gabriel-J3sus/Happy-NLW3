@@ -1,18 +1,20 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
-import { useHistory } from "react-router-dom";
-
 import { FiPlus } from "react-icons/fi";
 
+import api from "../services/api";
+import { useAuth } from "../contexts/auth";
 import Sidebar from '../components/Sidebar';
 import mapIcon from "../utils/mapIcon";
-import api from "../services/api";
 
 import '../styles/pages/create-orphanage.css';
 
 export default function CreateOrphanage() {
   const history = useHistory();
+
+  const { user } = useAuth();
 
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
 
@@ -76,7 +78,7 @@ export default function CreateOrphanage() {
     const { latitude, longitude } = position;
 
     const data = new FormData();
-
+    
     data.append('name', name);
     data.append('about', about);
     data.append('telefone', telefone);
@@ -85,7 +87,8 @@ export default function CreateOrphanage() {
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
-
+    data.append('user', String(user?.id));
+    
     images.forEach(image => {
       data.append('images', image);
     })
