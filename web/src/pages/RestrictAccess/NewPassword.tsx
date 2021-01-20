@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
+import api from '../../services/api';
 import RestrictAccess from '../../components/RestrictAccess';
 import { ArrowLeftButton } from '../../components/Buttons';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
+interface User {
+    email: string;
+    token: string;
+}
+
 function ForgotPassword() {
+    const params = useParams<User>();
+    const history = useHistory();
+
+    const [password, setPassword] = useState('');
+    const [confirmationPassword, setConfirmationPassword] = useState('');
+
+    async function handleSubmit(event: FormEvent) {
+        event.preventDefault();
+
+        if (password !== confirmationPassword) {
+            console.log('erro')
+            return;
+        }
+        
+        const email = params.email;
+        const token = params.token;
+
+        const data = { email, password, token };
+        
+        await api.post("auth/reset_password", data);
+
+        history.push('/login');
+    }
+
     return (
         <div id="container">
             <ArrowLeftButton go="/forgot" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
@@ -22,8 +53,8 @@ function ForgotPassword() {
                             <input 
                                 id="password" 
                                 type="password" 
-                                // value={email}
-                                // onChange={event => setEmail(event.target.value)}
+                                value={password}
+                                onChange={event => setPassword(event.target.value)}
                             />
                         </div>
 
@@ -32,13 +63,13 @@ function ForgotPassword() {
                             <input 
                                 id="confirmation" 
                                 type="password" 
-                                // value={email}
-                                // onChange={event => setEmail(event.target.value)}
+                                value={confirmationPassword}
+                                onChange={event => setConfirmationPassword(event.target.value)}
                             />
                         </div>
 
                     </fieldset>
-                    <button className="enter" style={{ marginTop: 21 }}>
+                    <button className="enter" style={{ marginTop: 21 }} onClick={handleSubmit}>
                         Entrar
                     </button>
                 </form>

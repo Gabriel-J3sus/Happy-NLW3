@@ -1,11 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { FormEvent, useState } from 'react';
+
+import api from '../../services/api';
 
 import { ArrowLeftButton } from '../../components/Buttons';
 import RestrictAccess from '../../components/RestrictAccess';
 import '../../styles/pages/RestrictAccess/login_register_newPassword.css';
 
 function ForgotPassword() {
+    const [email, setEmail] = useState('');
+
+    async function handleSubmit(event: FormEvent) {
+        event.preventDefault()
+
+        const data = { email }
+
+        await api.post("auth/forgot_password", data);
+
+    }
+
     return (
         <div id="container">
             <ArrowLeftButton go="/login" buttonClass="arrow" iconSize={32} color="#12AFCB"/>
@@ -23,15 +35,15 @@ function ForgotPassword() {
                             <input 
                                 id="email" 
                                 type="email" 
-                                // value={email}
-                                // onChange={event => setEmail(event.target.value)}
+                                value={email}
+                                onChange={event => setEmail(event.target.value)}
                             />
                         </div>
 
                     </fieldset>
-                    <Link to="/password" type="submit" className="enter" style={{ marginTop: 21 }}>
+                    <button type="submit" className="enter" style={{ marginTop: 21 }} onClick={handleSubmit}>
                         Entrar
-                    </Link>
+                    </button>
                 </form>
                 
             </div>

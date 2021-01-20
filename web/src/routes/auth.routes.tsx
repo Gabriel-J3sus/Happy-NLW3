@@ -19,8 +19,8 @@ function AuthRoutes() {
                 <Route path="/" exact component={Landing} />
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
-                <Route path="/forgot" component={ForgotPassword} />
-                <Route path="/password" component={NewPassword} />
+                <Route path="/forgot_password" component={ForgotPassword} />
+                <Route path="/new_password/:email/:token" component={NewPassword} />
                 <Route path="/app" component={OrphanagesMap} />
                 <Route path="/orphanages/:id" component={Orphanage} />
 

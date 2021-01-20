@@ -78,10 +78,10 @@ export default {
             await usersRepository.save(user);
 
             mailer.sendMail({
-                to: user.email,
+                to: email,
                 from: 'gabr.esus001@gmail.com',
                 subject: "Happy - Forgot Password",
-                html: `<p>Você esqueceu sua senha? Não tem problema, utilize esse token: ${token}</p>`
+                html: `<p>Você esqueceu sua senha? Não tem problema, <a href="localhost:3000/new_password/${email}/${token}">acesse</a> para trocar sua senha</p>`
                 
             }, (err) => {
                 if (err) {
@@ -91,8 +91,6 @@ export default {
             })
             
             return response.status(200);
-
-
 
         } catch (err) {
             response.status(400).json({ error: 'Error on forgot password, try again' });

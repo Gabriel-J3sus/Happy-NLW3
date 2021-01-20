@@ -53,7 +53,7 @@ function Login() {
                         </div>
 
                         <div className="about-password">
-                            <Link to="/forgot" className="forgot-password">
+                            <Link to="/forgot_password" className="forgot-password">
                                 Esqueci minha senha
                             </Link>
                         </div>
