@@ -1,5 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate, OneToMany, JoinColumn } from "typeorm";
 import bcrypt from 'bcryptjs';
+
+import Orphanage from "./Orphanage";
 
 @Entity('users')
 export default class User {
@@ -14,6 +16,12 @@ export default class User {
 
     @Column()
     password: string;
+
+    @OneToMany(() => Orphanage, orphanage => orphanage.user, {
+        cascade: ['insert', 'update']
+    })
+    @JoinColumn({ name: 'orphanages_id' })
+    orphanages: Orphanage[];
 
     //password hashed
     @BeforeInsert()

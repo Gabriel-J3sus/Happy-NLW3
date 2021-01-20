@@ -11,9 +11,11 @@ export default {
     async index (request: Request, response: Response) {
         const usersRepository = getRepository(User);
 
-        const users = await usersRepository.find();
-
-        return response.status(200).json(users);
+        const users = await usersRepository.find({
+            relations: ["orphanages"]
+        });
+        
+        return response.status(200).json(users_view.renderMany(users));
     },
 
     async show(request: Request, response: Response) {
@@ -21,7 +23,9 @@ export default {
 
         const usersRepository = getRepository(User);
 
-        const user = await usersRepository.findOneOrFail(userId);
+        const user = await usersRepository.findOneOrFail(userId, {
+            relations: ["orphanages"]
+        });
         
         return response.json(users_view.render(user));
     },
@@ -43,20 +47,20 @@ export default {
         
         const usersRepository = getRepository(User);
 
-        const userExists = await usersRepository.findOne({ where: { email } }); //if this email exists
-
+        const userExists = await usersRepository.findOne({ email }); //if this email exists
+        
         if (userExists) {
             return response.status(409).json({ error: 'User already exists'});
         }
 
-        const id = crypto.randomBytes(8).toString('hex');
+        const id = crypto.randomBytes(8).toString('hex');        
 
         const user = usersRepository.create({ id, name, email, password });
-
+        
         await usersRepository.save(user);
 
         const token = jwt.sign({ id: user.id }, 'secret', { expiresIn: '1d' }); //Creating token
 
-        return response.status(201).json([ users_view.render(user), token ])
+        return response.status(201).json([ user, token ])
     },
 }

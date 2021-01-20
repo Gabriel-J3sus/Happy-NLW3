@@ -24,7 +24,7 @@ export default {
 
         const usersRepository = getRepository(User);
 
-        const user = await usersRepository.findOne({ where: { email } }); //if exists
+        const user = await usersRepository.findOne({ email }); //if exists
 
         if (!user) {
             return response.status(401).json({ error: 'invalid email' });
