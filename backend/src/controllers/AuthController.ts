@@ -76,21 +76,24 @@ export default {
             user.passwordResetExpires = now;
 
             await usersRepository.save(user);
-
+            
             mailer.sendMail({
                 to: email,
                 from: 'gabr.esus001@gmail.com',
                 subject: "Happy - Forgot Password",
                 html: `<p>Você esqueceu sua senha? Não tem problema, <a href="localhost:3000/new_password/${email}/${token}">acesse</a> para trocar sua senha</p>`
                 
-            }, (err) => {
+            }, (err, info) => {
                 if (err) {
-                    
                     return response.status(400).json({ error: 'Cannot send forgot password email' });
                 }
+
+                if (info.response === '250 2.0.0 Ok: queued') {
+                    return response.status(200).json({ message: 'ok' })
+                }
+
             })
             
-            return response.status(200);
 
         } catch (err) {
             response.status(400).json({ error: 'Error on forgot password, try again' });
