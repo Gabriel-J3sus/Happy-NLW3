@@ -26,17 +26,22 @@ function Dashboard({ status, title, orphanages, children }: Dashboard) {
         <div id="dashboard">
             <UserSidebar status={`${status}`} />
             
-            <main>
-                <div className="wrapper">
+            <div className="content">
+
+                <main>
                     <div className="header">
                         <h1>{title}</h1>
                         <h3>{orphanages} orfanatos</h3>
                     </div>
-                    
+                        
                     {children}
-                    
+                        
+                </main>
+    
+                <div className="footer">
+                    <h4>Happy</h4>
                 </div>
-            </main>
+            </div>
             
             <MapButton go="/app" buttonClass="go-to-map" iconSize={32} color="#FFF" />
             <PlusButton go="/orphanages/create" buttonClass="create-orphanage" iconSize={32} color="#FFF"/>

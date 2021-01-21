@@ -39,6 +39,7 @@ export default {
             instructions,
             opening_hours,
             open_on_weekends,
+            pending,
             user,
         } = request.body;
 
@@ -59,6 +60,7 @@ export default {
             instructions,
             opening_hours,
             open_on_weekends: open_on_weekends === 'true',
+            pending,
             images,
             user,
         };
@@ -78,6 +80,7 @@ export default {
                 })
             ),
             user: Yup.string().required(),
+            pending: Yup.string().required(),
         });
 
         await schema.validate(data, {

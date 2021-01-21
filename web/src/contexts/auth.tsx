@@ -2,7 +2,25 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 import api from '../services/api';
 
-interface User {
+interface Orphanages {
+    orphanages: Array<{
+        id: number;
+        latitude: number;
+        longitude: number;
+        name: string;
+        about: string;
+        telefone: string;
+        instruction: string;
+        opening_hours: string;
+        open_on_weekends: string;
+                images: Array<{
+            id: number;
+            url: string;
+        }>;
+    }>
+}
+
+interface User extends Orphanages {
     id: string
     name: string;
     email: string;
@@ -28,13 +46,13 @@ export const AuthProvider: React.FC = ({ children }) => {
             
             if (storagedUser && storagedToken) {
     
-                await api.post('token', { 
+                const authResponse = await api.post('token', { 
                     headers: {
                         'Authorization': api.defaults.headers.authorization = `Bearer ${storagedToken}`
                     }
                 })//heders
     
-                setUser(JSON.parse(storagedUser));
+                setUser(authResponse.data);
                 
             }
         }

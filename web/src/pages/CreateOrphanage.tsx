@@ -76,6 +76,7 @@ export default function CreateOrphanage() {
     event.preventDefault();
 
     const { latitude, longitude } = position;
+    const pending = true;
 
     const data = new FormData();
     
@@ -88,6 +89,7 @@ export default function CreateOrphanage() {
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
     data.append('user', String(user?.id));
+    data.append('pending', String(pending));
     
     images.forEach(image => {
       data.append('images', image);

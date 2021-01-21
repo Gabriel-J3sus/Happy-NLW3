@@ -1,5 +1,4 @@
 import User from '../models/User';
-import orphanagesView from './orphanages_view';
 
 export default {
     render(user: User) {
@@ -8,7 +7,7 @@ export default {
             name: user.name,
             email: user.email,
             createdAt: user.createdAt,
-            orphanages: user.orphanages
+            orphanages: user.orphanages,
         };
     },
 

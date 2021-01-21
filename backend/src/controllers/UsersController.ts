@@ -26,6 +26,7 @@ export default {
         const user = await usersRepository.findOneOrFail(userId, {
             relations: ["orphanages"]
         });
+
         
         return response.json(users_view.render(user));
     },

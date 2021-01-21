@@ -16,6 +16,7 @@ function ForgotPassword() {
 
         await api.post("auth/forgot_password", data);
 
+        alert('Vai ver seu email!!!');
     }
 
     return (
