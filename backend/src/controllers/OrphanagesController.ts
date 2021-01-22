@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { formatToPhone } from 'brazilian-values'
-import orphanageView from '../views/orphanages_view';
 import * as Yup from 'yup';
 
 import Orphanage from '../models/Orphanage';
+import orphanageView from '../views/orphanages_view';
 
 export default {
     async index(request: Request, response: Response) {
         const orphanagesRepository = getRepository(Orphanage);
         
         const orphanages = await orphanagesRepository.find({
-            relations: ['images']
+            relations: ['images', 'user']
         });
-        
+
         return response.json(orphanageView.renderMany(orphanages));
     },
 
@@ -23,7 +23,7 @@ export default {
         const orphanagesRepository = getRepository(Orphanage);
         
         const orphanage = await orphanagesRepository.findOneOrFail(id, {
-            relations: ['images']
+            relations: ['images', 'user']
         });
 
         return response.json(orphanageView.render(orphanage));
@@ -60,7 +60,7 @@ export default {
             instructions,
             opening_hours,
             open_on_weekends: open_on_weekends === 'true',
-            pending,
+            pending: pending === 'true',
             images,
             user,
         };
@@ -94,5 +94,15 @@ export default {
         await orphanagesRepository.save(orphanage);
         
         return response.status(201).json(orphanage);
+    },
+
+    async delete(request: Request, response: Response) {
+        const orphanageId = request.params;
+
+        const orphanagesRepository = getRepository(Orphanage);
+
+        await orphanagesRepository.delete(orphanageId);
+
+        return response.status(200).json({ message: 'Deleted' });
     }
 };

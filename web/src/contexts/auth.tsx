@@ -2,25 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 import api from '../services/api';
 
-interface Orphanages {
-    orphanages: Array<{
-        id: number;
-        latitude: number;
-        longitude: number;
-        name: string;
-        about: string;
-        telefone: string;
-        instruction: string;
-        opening_hours: string;
-        open_on_weekends: string;
-                images: Array<{
-            id: number;
-            url: string;
-        }>;
-    }>
-}
-
-interface User extends Orphanages {
+interface User {
     id: string
     name: string;
     email: string;

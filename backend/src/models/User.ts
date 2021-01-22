@@ -30,7 +30,7 @@ export default class User {
     @OneToMany(() => Orphanage, orphanage => orphanage.user, {
         cascade: ['insert', 'update']
     })
-    @JoinColumn({ name: 'orphanages_id' })
+    @JoinColumn({ name: 'orphanage_id' })
     orphanages: Orphanage[];
 
     //password hashed

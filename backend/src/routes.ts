@@ -20,17 +20,23 @@ const upload = multer(uploadConfig);
 //Controllers: 
     //index, show, create, update, delete
     
-routes.get('/orphanages', OrphanagesController.index);
-routes.get('/orphanages/:id', OrphanagesController.show);
-routes.post('/orphanages', upload.array('images'), OrphanagesController.create);
-
-routes.post('/users', UsersController.create);
-routes.get('/usersList', UsersController.index);
-routes.post('/auth', AuthController.authenticate);
-routes.post('/auth/forgot_password', AuthController.forgot_password);
-routes.post('/auth/reset_password', AuthController.reset_password);
-
-routes.post('/token', authMiddleware, UsersController.show);
+    routes.get('/orphanages', OrphanagesController.index); //show all orphanages
+    routes.get('/orphanages/:id', OrphanagesController.show); //search for an orphanage
+    routes.post('/orphanages', upload.array('images'), OrphanagesController.create); //create orphanage
+    routes.delete('/orphanage/:id', OrphanagesController.delete); //delete orphanage
+    
+    routes.post('/users', UsersController.create);  //create user
+    routes.get('/usersList', UsersController.index); //show users
+    
+    routes.post('/auth', AuthController.authenticate); //login
+    routes.post('/auth/forgot_password', AuthController.forgot_password); //send emails
+    routes.post('/auth/reset_password', AuthController.reset_password); //reset password
+    
+    routes.post('/token', authMiddleware, UsersController.show) //first authentication
+    
+    routes.post('/notPending', authMiddleware, UsersController.notPending); //search for not pending orphanages
+    routes.post('/pending', authMiddleware, UsersController.pending); //search for pending orphanages
+    
 
 
 //Rota - conjunto

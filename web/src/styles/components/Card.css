@@ -8,6 +8,12 @@
     background: #FFF;
     border: 1px solid #D3E2E5;
     border-radius: 20px;
+
+    transition: 0.8s;
+}
+
+.card:hover {
+    transform: translateY(-2.5%)
 }
 
 .card footer {
@@ -44,7 +50,7 @@
 }
 
 .card footer .buttons .edit:hover, .delete:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .card footer .buttons .edit {
