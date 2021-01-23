@@ -21,9 +21,9 @@ function Card({ latitude, longitude, title, id }: Card) {
 
     async function handleDelete(id: number) {
         try {
-            await api.delete(`orphanage/${id}`);
+            api.delete(`orphanage/${id}`);
 
-            history.go(0)
+            history.push('/orphanages/delete');
         } catch (err) {
             alert('Erro ao deletar caso, tente novamente.');
         }

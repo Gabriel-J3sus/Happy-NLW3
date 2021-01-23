@@ -7,8 +7,10 @@ import RegisteredOrphanages from '../pages/RestrictAccess/Dashboard/RegisteredOp
 import PendingOrphanages from '../pages/RestrictAccess/Dashboard/PendingOrphanages';
 import CreateOrphanage from '../pages/CreateOrphanage';
 import OrphanageSuccess from '../pages/OrphanageSuccess';
+import OrphanageDelete from '../pages/OrphanageDeleted';
 import OrphanagesMap from '../pages/OrphanagesMap';
 import Orphanage from '../pages/Orphanage';
+
 
 function AppRoutes() {
     const { user } = useAuth();
@@ -19,7 +21,8 @@ function AppRoutes() {
                 <Route path={`/${user?.name}/orphanages`} exact component={RegisteredOrphanages} />
                 <Route path={`/${user?.name}/pending`} component={PendingOrphanages} />
                 <Route path="/orphanages/create" component={CreateOrphanage} />
-                <Route path="/orphanages/success" component={OrphanageSuccess} />        
+                <Route path="/orphanages/success" component={OrphanageSuccess} /> 
+                <Route path="/orphanages/delete" component={OrphanageDelete} />        
                 {/* <Route path={`/orphanages/${1}`} component={Orphanage} />         */}
                 <Route path="/app" component={OrphanagesMap} />
                 

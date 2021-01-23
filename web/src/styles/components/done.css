@@ -1,0 +1,77 @@
+#done {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#done .content-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    
+    height: 100%;
+    max-height: 670px;
+
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#done .content-wrapper main {
+    max-width: 392px;
+    margin-left: 130px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#done .content-wrapper main h1 {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 80px;
+}
+
+#done .content-wrapper main p {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 34px;
+}
+
+#done .content-wrapper main .successButton, .deleteButton {
+    padding: 20px 40px;
+    
+    color: #FFF;
+    border-radius: 20px;
+
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 25px;
+
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
+
+#done .content-wrapper main .successButton {
+    background: #31B272;
+}
+
+#done .content-wrapper main .deleteButton {
+    background: #D6487B;
+}
+
+#done .content-wrapper main .successButton:hover {
+    background: #3BD689;
+}
+
+#done .content-wrapper main .deleteButton:hover {
+    background: #ff80af;
+}

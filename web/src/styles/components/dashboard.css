@@ -1,13 +1,13 @@
 #dashboard {
     display: flex;
     min-height: 100vh;
-    animation: opacity 1s ease-in;
+    animation: opacity 1s ease;
 
 }
 
 @keyframes opacity {
     from {
-        opacity: 0;
+        opacity: 0.1;
     }
 
     to {
