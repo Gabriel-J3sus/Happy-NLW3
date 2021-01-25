@@ -1,3 +1,4 @@
+/*Landing Arrow Right*/
 .enter-app {
     position: absolute;
     right: 0;
@@ -18,8 +19,9 @@
 .enter-app:hover {
     background: #96FEFF;
 }
+/*=======================================*/
 
-
+/*Return loging, create user, change password*/
 .arrow {
     position: absolute;
     top: 0;
@@ -44,38 +46,30 @@
     opacity: 0.8;
     transform: scale(1.04);
 }
+/*=======================================*/
 
-.option-button {
-    width: 360px;
-    height: 64px;
+/*Arrow right pending orphanages*/
+.pending-details {
+    width: 48px;
+    height: 48px;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 15px;
-
-    background: #FFD666;
-    color: #FFF;
-    border-radius: 20px;
-
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 21px;
-    text-decoration: none;
-
-    cursor: pointer;
-    transition: all ease 0.3s;
-    transform: scale(1);
+    background: #EBF2F5;
+    border: 0;
+    border-radius: 16px;
+    transition: 0.2s;
 }
 
-.option-button:hover {
-    background: #FFF;
-    color: #FFD666;
-    border: 2px solid #FFD666;
-    transform: scale(1.1);
+.pending-details:hover {
+    opacity: 0.8;
 }
+/*=======================================*/
 
-.create-orphanage, .go-to-map, .return-to-landing {
+/*users right side buttons*/
+.create-orphanage, .return-to-landing {
     position: fixed;
     right: 40px;
     bottom: 40px;
@@ -94,20 +88,18 @@
     transition: background-color 0.2s;
 }
 
-.go-to-map {
-    bottom: 114px;
-}
-
 .return-to-landing {
     top: 40px;
     bottom: 0;
 }
 
-.create-orphanage:hover, .go-to-map:hover, .return-to-landing:hover {
+.create-orphanage:hover, .return-to-landing:hover {
      background: #17d6eb
 }
+/*=======================================*/
 
-.register-or-login {
+/*Restrict access Landin*/
+.restrict-access {
     position: absolute;
     top: 0;
     right: 0;
@@ -130,7 +122,8 @@
     transition: all ease 0.5s;
 }
 
-.register-or-login:hover {
+.restrict-access:hover {
     background: #96FEFF;
     color: #15C3D6;
 }
+/*=======================================*/

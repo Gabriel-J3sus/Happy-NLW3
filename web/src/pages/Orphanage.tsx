@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import { FiClock, FiInfo } from "react-icons/fi";
 import { FaWhatsapp } from 'react-icons/fa';
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useParams } from 'react-router-dom';
 
 import Sidebar from '../components/Sidebar';
 import mapIcon from "../utils/mapIcon";

@@ -8,22 +8,24 @@ import api from '../services/api';
 
 import mapIcon from '../utils/mapIcon';
 import '../styles/components/Card.css';
+import { ArrowRightButton } from './Buttons';
 
 interface Card {
     latitude: number;
     longitude: number;
     title: string;
     id: number;
+    url: string;
 }
 
-function Card({ latitude, longitude, title, id }: Card) {
+function Card({ latitude, longitude, title, id, url }: Card) {
     const history = useHistory();
 
     async function handleDelete(id: number) {
         try {
             api.delete(`orphanage/${id}`);
 
-            history.push('/orphanages/delete');
+            history.push(`/orphanages/delete/${url}`);
         } catch (err) {
             alert('Erro ao deletar caso, tente novamente.');
         }
@@ -52,12 +54,22 @@ function Card({ latitude, longitude, title, id }: Card) {
                 <h2>{title}</h2>
 
                 <div className="buttons">
-                    <button className="edit">
-                        <HiOutlinePencil size={24} color="#15C3D6"/>
-                    </button>
-                    <button className="delete" onClick={() => handleDelete(id)}>
-                        <FiTrash size={24} color="#15C3D6" />
-                    </button>
+                    {url === "orphanages" ? (
+                        <>
+                            <button className="edit">
+                                <HiOutlinePencil size={24} color="#15C3D6"/>
+                            </button>
+                        
+                            <button className="delete" onClick={() => handleDelete(id)}>
+                                <FiTrash size={24} color="#15C3D6" />
+                            </button>
+                        </>
+                    ) : (
+                        
+                        <ArrowRightButton go="#" buttonClass="pending-details" color="#15C3D6" iconSize={24} />
+                    )}
+
+
                 </div>
             </footer>
         </div>    

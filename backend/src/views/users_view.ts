@@ -7,7 +7,6 @@ export default {
             name: user.name,
             email: user.email,
             createdAt: user.createdAt,
-            orphanages: user.orphanages,
         };
     },
 

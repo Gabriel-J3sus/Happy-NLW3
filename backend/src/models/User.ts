@@ -26,13 +26,6 @@ export default class User {
     @Column()
     createdAt: Date;
 
-
-    @OneToMany(() => Orphanage, orphanage => orphanage.user, {
-        cascade: ['insert', 'update']
-    })
-    @JoinColumn({ name: 'orphanage_id' })
-    orphanages: Orphanage[];
-
     //password hashed
     @BeforeInsert()
     @BeforeUpdate()

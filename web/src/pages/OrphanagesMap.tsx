@@ -87,11 +87,15 @@ function OrphanagesMap() {
                 })}                
             </Map>
             
-            {/*if user is signed*/}
-            <ArrowLeftButton go={signed ? `/${user?.name}/orphanages` : "/"} buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
-            
-            {/*if user is signed*/}
-            <PlusButton go={signed ? "/orphanages/create" : "/login"} buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
+            {signed ? (
+                <ArrowLeftButton go={`/${user?.name}/orphanages`} buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
+            ) : (
+                <>
+                    <ArrowLeftButton go={'/'} buttonClass="return-to-landing" iconSize={32} color="#FFF"/>
+                    <PlusButton go={"/orphanages/create"} buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
+                </>
+            )}
+
         </div>
     );
 }

@@ -32,7 +32,7 @@ function PendingOrphanages() {
             <div className="container">
                 {orphanages.map(orphanage => {
                     return (
-                        <Card key={orphanage.id} latitude={orphanage.latitude} longitude={orphanage.longitude} title={orphanage.name} id={orphanage.id} />
+                        <Card key={orphanage.id} latitude={orphanage.latitude} longitude={orphanage.longitude} title={orphanage.name} id={orphanage.id} url="pending" />
                     );
                 })}
                 

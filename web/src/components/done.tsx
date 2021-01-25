@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useAuth } from '../contexts/auth';
-
 import '../styles/components/done.css';
 
 interface Done {
@@ -28,7 +26,7 @@ function Done({ title, description, image, backgroundColor, buttonClass }: Done)
                     <p>{description}</p>
 
                     <Link to={`/app`} className={buttonClass}>
-                        Voltar
+                        Voltar para o mapa
                     </Link>
                 </main>
             </div>

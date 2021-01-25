@@ -1,7 +1,6 @@
 import React from 'react';
 
 import UserSidebar from './UserSidebar';
-import { MapButton, PlusButton } from './Buttons';
 import NoOrphanage from '../images/nothing-found.svg';
 import '../styles/components/dashboard.css';
 
@@ -42,9 +41,6 @@ function Dashboard({ status, title, orphanages, children }: Dashboard) {
                     <h4>Happy</h4>
                 </div>
             </div>
-            
-            <MapButton go="/app" buttonClass="go-to-map" iconSize={32} color="#FFF" />
-            <PlusButton go="/orphanages/create" buttonClass="create-orphanage" iconSize={32} color="#FFF"/>
         </div>
     );
 }
