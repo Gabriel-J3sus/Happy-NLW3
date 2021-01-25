@@ -5,7 +5,7 @@ import Done from '../components/done';
 import deleteImg from '../images/delete.svg';
 
 interface OrphanageParams {
-    orphanageName: string
+    orphanageName: string;
 }
 
 function OrphanageDelete() {

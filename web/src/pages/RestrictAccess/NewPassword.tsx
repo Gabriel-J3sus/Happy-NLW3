@@ -22,7 +22,6 @@ function ForgotPassword() {
         event.preventDefault();
 
         if (password !== confirmationPassword) {
-            console.log('erro')
             return;
         }
         

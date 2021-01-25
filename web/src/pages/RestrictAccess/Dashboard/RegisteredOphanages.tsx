@@ -14,15 +14,15 @@ interface Orphanage {
 }
 
 function RegisteredOrphanages() {
-    const token = localStorage.getItem('@HappyAuth:token') 
-
     const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
     
     useEffect(() => {
-        api.post(`notPending`, { headers: {'Authorization': api.defaults.headers.authorization = `Bearer ${token}`}}).then(response => {
+        const token = localStorage.getItem('@HappyAuth:token');
+
+        api.post('notPending', { headers: {'Authorization': api.defaults.headers.authorization = `Bearer ${token}`} }).then(response => {
             setOrphanages(response.data); //returns backend response from the authentication
         })
-    }, [token]);
+    }, []);
 
     if (!orphanages) {
         return <p>Carregando...</p>
