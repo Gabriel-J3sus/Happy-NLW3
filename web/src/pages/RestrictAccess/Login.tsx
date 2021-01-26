@@ -21,7 +21,6 @@ function Login() {
         await signIn(data, "auth");  
     }
 
-
     return (
         <div id="container">
             <ArrowLeftButton go="/" buttonClass="arrow" iconSize={32} color="#12AFCB"/>

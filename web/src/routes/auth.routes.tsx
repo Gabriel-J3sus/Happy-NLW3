@@ -31,9 +31,7 @@ function AuthRoutes() {
                 
                 <Redirect from={`/${user?.name}/orphanages`} to="/" />
                 <Redirect from={`/${user?.name}/pending`} to="/" />
-                <Redirect from='/orphanages/create' to="/" />
-                <Redirect from='/orphanages/success' to="/" />
-
+                <Redirect from="/orphanages/delete/:orphanageName" to="/" />        
             </Switch>
         </BrowserRouter>
         

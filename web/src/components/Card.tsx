@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Map, TileLayer, Marker } from 'react-leaflet';
-import { FiTrash } from 'react-icons/fi';
+import { FiTrash, FiArrowRight } from 'react-icons/fi';
 import { HiOutlinePencil } from 'react-icons/hi';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../services/api';
+import { useAuth } from '../contexts/auth';
 
 import mapIcon from '../utils/mapIcon';
 import '../styles/components/Card.css';
-import { ArrowRightButton } from './Buttons';
 
 interface Card {
     latitude: number;
@@ -19,6 +19,7 @@ interface Card {
 }
 
 function Card({ latitude, longitude, title, id, url }: Card) {
+    const { user } = useAuth()
     const history = useHistory();
 
     async function handleDelete(id: number) {
@@ -28,6 +29,18 @@ function Card({ latitude, longitude, title, id, url }: Card) {
             history.push(`/orphanages/delete/${url}`);
         } catch (err) {
             alert('Erro ao deletar caso, tente novamente.');
+        }
+    }
+
+    async function handleUpdate(id: number) {
+        try {
+            api.put(`orphanage/${id}`);
+
+            alert('Orfanato aprovado');
+            history.push(`/${user?.name}/orphanages`);
+
+        } catch (err) {
+            alert('Erro ao aprovar orfanato, tente novamente');
         }
     }
    
@@ -56,17 +69,18 @@ function Card({ latitude, longitude, title, id, url }: Card) {
                 <div className="buttons">
                     {url === "orphanages" ? (
                         <>
-                            <button className="edit">
+                            <Link to={`/orphanages/${id}`} className="edit">
                                 <HiOutlinePencil size={24} color="#15C3D6"/>
-                            </button>
+                            </Link>
                         
                             <button className="delete" onClick={() => handleDelete(id)}>
                                 <FiTrash size={24} color="#15C3D6" />
                             </button>
                         </>
                     ) : (
-                        
-                        <ArrowRightButton go="#" buttonClass="pending-details" color="#15C3D6" iconSize={24} />
+                        <button className="pending-details" onClick={() => handleUpdate(id)}>
+                            <FiArrowRight size={24} color="#15C3D6" />
+                        </button>
                     )}
 
 
@@ -77,4 +91,4 @@ function Card({ latitude, longitude, title, id, url }: Card) {
     );
 }
   
-export default Card;
+export default memo(Card);

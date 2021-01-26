@@ -5,7 +5,6 @@ import { LeafletMouseEvent } from 'leaflet';
 import { FiPlus } from "react-icons/fi";
 
 import api from "../services/api";
-import { CgClose } from "react-icons/cg";
 
 import { useAuth } from "../contexts/auth";
 
@@ -103,10 +102,6 @@ export default function CreateOrphanage() {
     history.push('/orphanages/success');
   }
 
-  function deleteImage() {
-    document.querySelector('.image')?.remove();
-  }
-
   return (
     <div id="page-create-orphanage">
       <Sidebar />
@@ -172,10 +167,6 @@ export default function CreateOrphanage() {
                   return (
                     <div className="image" key={image}>
                       <img  src={image} alt={name} />
-
-                      <div className="delete" onClick={deleteImage}>
-                        <CgClose size={24} color="#FF669D"/>
-                      </div>
                     </div>
                   );
                 })}

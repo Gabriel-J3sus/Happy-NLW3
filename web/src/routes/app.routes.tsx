@@ -19,7 +19,7 @@ function AppRoutes() {
                 <Route path={`/${user?.name}/orphanages`} exact component={RegisteredOrphanages} />
                 <Route path={`/${user?.name}/pending`} component={PendingOrphanages} />
                 <Route path="/orphanages/delete/:orphanageName" component={OrphanageDelete} />        
-                {/* <Route path={`/orphanages/${1}`} component={Orphanage} />         */}
+                <Route path={`/orphanages/:id`} component={Orphanage} />        
                 <Route path="/app" component={OrphanagesMap} />
                 
                 <Redirect from="/" to={`/${user?.name}/orphanages`} />
@@ -27,7 +27,6 @@ function AppRoutes() {
                 <Redirect from="/login" to={`/${user?.name}/orphanages`} />
                 <Redirect from="/forgot" to={`/${user?.name}/orphanages`} />
                 <Redirect from="/password" to={`/${user?.name}/orphanages`} />
-                {/* <Redirect from="/orphanages/:id" to={`/${user?.name}/orphanages`} /> */}
 
             </Switch>    
         </BrowserRouter>

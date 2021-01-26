@@ -11,7 +11,8 @@ export default {
         const orphanagesRepository = getRepository(Orphanage);
         
         const orphanages = await orphanagesRepository.find({
-            relations: ['images']
+            relations: ['images'],
+            where: [{ pending: false }]
         });
 
         return response.json(orphanageView.renderMany(orphanages));
@@ -101,5 +102,19 @@ export default {
         await orphanagesRepository.delete(orphanageId);
 
         return response.status(200).json({ message: 'Deleted' });
+    },
+
+    async update(request: Request, response: Response) {
+        const orphanageId = request.params;
+
+        const orphanagesRepository = getRepository(Orphanage);
+        
+        const orphanage = await orphanagesRepository.findOneOrFail(orphanageId);
+
+        orphanage.pending = false;
+
+        await orphanagesRepository.save(orphanage);
+
+        return response.status(201).json({ orphanage });
     }
 };

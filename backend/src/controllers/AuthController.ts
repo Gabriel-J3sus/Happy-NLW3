@@ -79,7 +79,7 @@ export default {
             
             mailer.sendMail({
                 to: email,
-                from: 'gabr.esus001@gmail.com',
+                from: 'gabr.jesus001@gmail.com',
                 subject: "Happy - Forgot Password",
                 html: `<p>Você esqueceu sua senha? Não tem problema, <a href="localhost:3000/new_password/${email}/${token}">acesse</a> para trocar sua senha</p>`
                 

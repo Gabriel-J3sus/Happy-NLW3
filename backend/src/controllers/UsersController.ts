@@ -73,7 +73,8 @@ export default {
         const orphanagesRepository = getRepository(Orphanage);
 
         const orphanage = await orphanagesRepository.find({
-            where: [{ pending: false }]
+            where: [{ pending: false }],
+            relations: ['images']
         })
 
         return response.json(orphanage)
@@ -85,7 +86,8 @@ export default {
         const orphanagesRepository = getRepository(Orphanage);
 
         const orphanage = await orphanagesRepository.find({
-            where: [{ pending: true }]
+            where: [{ pending: true }],
+            relations: ['images']
         })
 
         return response.json(orphanage);

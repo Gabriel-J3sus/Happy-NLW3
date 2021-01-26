@@ -24,6 +24,7 @@ const upload = multer(uploadConfig);
     routes.get('/orphanages/:id', OrphanagesController.show); //search for an orphanage
     routes.post('/orphanages', upload.array('images'), OrphanagesController.create); //create orphanage
     routes.delete('/orphanage/:id', OrphanagesController.delete); //delete orphanage
+    routes.put('/orphanage/:id', OrphanagesController.update); //update orphanage
     
     routes.post('/users', UsersController.create);  //create user
     routes.get('/usersList', UsersController.index); //show users

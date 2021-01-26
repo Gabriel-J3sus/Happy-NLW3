@@ -35,7 +35,7 @@
     display: flex;
 }
 
-.card footer .buttons .edit, .delete {
+.card footer .buttons .edit, .delete, .pending-details {
     width: 48px;
     height: 48px;
 
@@ -49,7 +49,7 @@
     transition: 0.2s;
 }
 
-.card footer .buttons .edit:hover, .delete:hover {
+.card footer .buttons .edit:hover, .delete:hover, .pending-details:hover {
     opacity: 0.8;
 }
 
